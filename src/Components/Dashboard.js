@@ -1,21 +1,19 @@
-import React, {useState, useEffect} from "react";
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Dashboard = (props) => {
-    //products is state, setProducts is setState, and useState is the value. setProduct will update the value of state to 
-  const [products, setProducts] = useState([])
-  
-  useEffect(()=> {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
     axios
-    .get('/api/products')
-    .then(res=> {
-      setProducts(res.data)
-    })
-    .catch(err=> {
-      console.log(err)
-    })
-  }, [])
-  //If you leave that array bracket empty, it only fires once. If you put a value in it, it'll fire every time that value changes. Don't put the state in it, or it will cause an infinite loop. So, in this example, don't use products in that array.
+      .get("/api/products")
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const addToCart = (id) => {
     axios.post(`/api/cart/${id}`)
@@ -44,4 +42,10 @@ const Dashboard = (props) => {
 
 export default Dashboard;
 
+
 //We don't have the admin functionality here. So anyone can add a product. 
+
+  //If you leave that array bracket empty in the useEffect, it only fires once. If you put a value in it, it'll fire every time that value changes. Don't put the state in it, or it will cause an infinite loop. So, in this example, don't use products in that array.
+
+  //products is state, setProducts is setState, and useState is the value. setProduct will update the value of state to 
+//   const [products, setProducts] = useState([])

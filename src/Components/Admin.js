@@ -1,5 +1,6 @@
 //Note: this is not how you'd do this in a real production app. 
-//I think this is like the list of products, and AdminProduct is the individual product. 
+//I think this is like the list of products, and AdminProduct is the individual product. import React, { useState, useEffect } from "react";
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminProduct from "./AdminProduct";
@@ -93,4 +94,3 @@ const Admin = (props) => {
 };
 
 export default Admin;
-

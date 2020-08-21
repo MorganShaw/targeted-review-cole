@@ -1,10 +1,11 @@
-import React, {useState} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
+import { getUser } from "../redux/reducer";
+import { connect } from "react-redux";
 
 const Auth = (props) => {
-    //name of property on state, name of function that updates state, and the initial value
-    const [toggle, setToggle] = useState(true);
-    const [emailInput, setEmail] = useState("");
+  const [toggle, setToggle] = useState(true);
+  const [emailInput, setEmail] = useState("");
   const [passwordInput, setPassword] = useState("");
 
   const handleEmailInput = (event) => {
@@ -22,8 +23,7 @@ const Auth = (props) => {
         password: passwordInput,
       })
       .then((res) => {
-        //# send res.data to redux NOT SET UP YET!!
-        //# then redirect user to dashboard
+        props.getUser();
         props.history.push("/dash");
       })
       .catch((err) => {
@@ -38,8 +38,7 @@ const Auth = (props) => {
         password: passwordInput,
       })
       .then((res) => {
-        //# send res.data to redux NOT SET UP YET!!
-        //# then redirect user to dashboard
+        props.getUser();
         props.history.push("/dash");
       })
       .catch((err) => {
@@ -92,7 +91,7 @@ const Auth = (props) => {
   );
 };
 
-export default Auth;
+export default connect(null, { getUser })(Auth);
 
 
 
@@ -104,3 +103,22 @@ export default Auth;
 //     this.setState({[e.target.name]: e.target.value})
 //  }
  
+
+// const login = () => {
+//   axios
+//     .post("/auth/login", {
+//       email: emailInput,
+//       password: passwordInput,
+//     })
+//     .then((res) => {
+//       //# send res.data to redux NOT SET UP YET!!
+//       //# then redirect user to dashboard
+//       props.history.push("/dash");
+//     })
+//     .catch((err) => {
+//       alert("email or password incorrect");
+//     });
+// };
+
+//name of property on state, name of function that updates state, and the initial value
+// const [toggle, setToggle] = useState(true);
