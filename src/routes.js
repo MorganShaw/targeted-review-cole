@@ -11,7 +11,6 @@ export default (
     <Route path='/admin' component={Admin} />
   </Switch>
 );
-
   
   //Parentheses mean this is an implied return (JSX).
 

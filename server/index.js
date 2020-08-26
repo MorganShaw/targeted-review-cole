@@ -52,7 +52,7 @@ app.post('/auth/user', authCtrl.getUser);
 
 //PRODUCT ENDPOINTS (more for inventory)
 app.get('/api/products', productCtrl.getProducts);
-// // app.get('/api/products/:id', productCtrl.getProduct);
+// app.get('/api/products/:id', productCtrl.getProduct);
 app.post('/api/products', productCtrl.addProduct);
 app.put('/api/products/:id', productCtrl.editProduct);
 app.delete('/api/products/:id', productCtrl.deleteProduct);

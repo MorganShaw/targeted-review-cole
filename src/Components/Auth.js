@@ -95,6 +95,7 @@ export default connect(null, { getUser })(Auth);
 
 
 
+
 //Cole said something about how putting password in the input value attributes or something...would show the password and be insecure?? Is that why he used passwordInput? 
 
 // Universal input handler doesn't work here (see example below b/c of the way Cole set this up and because it has hooks. You can use a universal input handler with hooks, but it's apparently more challenging. Look that up.)
